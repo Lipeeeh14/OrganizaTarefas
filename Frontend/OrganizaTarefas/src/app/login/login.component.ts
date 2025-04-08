@@ -14,4 +14,8 @@ export class LoginComponent {
   login(): void {
     this.router.navigate(['/tarefas']);
   }
+
+  register(): void {
+    this.router.navigate(['/register']);
+  }
 }
