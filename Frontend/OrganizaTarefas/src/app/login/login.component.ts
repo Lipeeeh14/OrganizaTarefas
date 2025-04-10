@@ -15,8 +15,8 @@ export class LoginComponent {
 
   constructor(private router: Router) {
     this.loginForm = new FormBuilder().group({
-      email: ['', Validators.required, Validators.email],
-      password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/)]]
     });
   }
 
@@ -26,6 +26,7 @@ export class LoginComponent {
       this.router.navigate(['/tarefas']);
     } else {
       console.log('Form is invalid');
+      console.log(this.loginForm.value);
     }    
   }
 
